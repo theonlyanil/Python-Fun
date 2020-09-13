@@ -2,7 +2,6 @@
     Status: Not working...
 """
 import requests
-from bs4 import BeautifulSoup
 
 baseurl = 'https://emailcrawlr.com/lookup'
 
