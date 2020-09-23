@@ -55,4 +55,4 @@ while True:
     print(stringy.title())
 
     #Do this after every second...
-    time.sleep(1.00 - ((time.time() - starttime) % 1.0))
+    time.sleep(1.00)
