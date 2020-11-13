@@ -61,8 +61,10 @@ def findVAI_num(vai):
 #findVAI_num(input("VAI: "))
 
 if __name__ == '__main__':
+    start = int(input("Start VAI: "))
+    end = int(input("End VAI: "))
     try:
-        getReports(19346, 19410, 0)
+        getReports(start, end, 0)
 
         # save pandas csv
         df = pd.DataFrame.from_dict(reports)
