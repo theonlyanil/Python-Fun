@@ -1,5 +1,4 @@
 import requests
-from pprint import pprint
 
 base_url = 'http://reports.okaydiagnostic.com/upload/CovidReports/'
 #vai = '19472'
@@ -19,15 +18,17 @@ def getReports(startVAI, endVAI, count_init):
             count += 1
             fetchReport(vai, count)
 
-# TODO Not in use
 def fetchReport(vai, count):
     url = base_url + str(vai) + dash + str(count) + suffix
     res = requests.get(url)
     if res.status_code == 200:
         print(f"\u001b[35m {count} Found Report \u001b[0m")
     else:
-        raise Exception("Report doesn't exist.")
-
+        #raise Exception("Report doesn't exist.")
+        fetchReport(vai+1, count)
+"""
+    Get the initial vai_num by VAI
+"""
 def findVAI_num(vai):
     for i in range(0, 25):
         url = base_url + str(vai) + dash + str(i) + suffix
