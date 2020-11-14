@@ -11,3 +11,7 @@ This script lets you download your covid19 report from Okay Diagnostics Lab with
 - Enter start & end VAI range e.g. 19000, 19100 (This fetches 100 reports)
 - You will see results in Terminal in a magenta text with a URL.
 - If the program is stopped, it will save all fetched reports in a CSV file (okay.csv) with VAI and report URL.
+
+##
+
+Enjoy until their developers change their algorithm...
