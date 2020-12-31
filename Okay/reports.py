@@ -48,7 +48,7 @@ def fetchReport(vai, count, error_code):
     Get the initial vai_num by VAI
 """
 def findVAI_num(vai):
-    for i in range(0, 25):
+    for i in range(0, 30):
         url = base_url + str(vai) + dash + str(i) + suffix
         res = requests.get(url)
         if res.status_code == 200:
