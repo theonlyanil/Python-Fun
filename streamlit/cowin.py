@@ -30,18 +30,23 @@ req = session.get(url, headers=agent, cookies=cookies)
 session.cookies.clear()
 centers = req.json()['centers']
 books = []
+vaccines = []
 for center in centers:
-    booked = center['sessions'][0]['available_capacity']
+    sessions = center['sessions'][0]
+    booked = sessions['available_capacity']
+    vaccine = sessions['vaccine']
     if booked == 0:
         booked = 'Booked'
     else:
         booked = 'Available'
     books.append(booked)
+    vaccines.append(vaccine)
 
 print(books)
 df = pd.DataFrame(centers)
 df['Availability'] = pd.Series(books)
-df = df[['Availability', 'center_id', 'name', 'address', 'state_name', 'district_name', 'block_name', 'pincode', 'from', 'to', 'fee_type']]
+df['Vaccine'] = pd.Series(vaccines)
+df = df[['Availability', 'Vaccine', 'center_id', 'name', 'address', 'state_name', 'district_name', 'block_name', 'pincode', 'from', 'to', 'fee_type']]
 df
 
 #for x in range(37):
