@@ -1,3 +1,9 @@
+"""
+    A simple module created to scrape amazon product page contents
+
+    TheOnlyAnil
+"""
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -34,6 +40,9 @@ price = soup.find("span", attrs={'class':'a-offscreen'}).string.strip()
 print("PRICE: " + price)
 cat = soup.find("a", attrs={'class' : "a-link-normal a-color-tertiary"}).string.strip()
 print("Cat: " + cat)
-#img_url = soup.find(id="imageBlock").string
-img_url = soup.find("img", attrs={"class":"a-dynamic-image a-stretch-horizontal"}).string.strip()
-print("IMG: " + img_url)
+
+#desc = soup.find('meta', property='description')
+img = str(soup.find(id='landingImage'))
+img_src = img.split('src')[1].split('"')[1]
+
+print("img_src: " + img_src)
